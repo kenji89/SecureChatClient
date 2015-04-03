@@ -21,6 +21,11 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>pl.marczykm</groupId>
+			<artifactId>SecureChatServer</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -30,7 +35,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>pl.marczykm.SecureChatClient.App</mainClass>
+							<mainClass>pl.marczykm.SecureChatClient.gui.GUI</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -43,7 +48,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>pl.marczykm.SecureChatClient.App</mainClass>
+							<mainClass>pl.marczykm.SecureChatClient.gui.GUI</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
