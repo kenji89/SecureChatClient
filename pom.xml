@@ -31,7 +31,7 @@
 	<artifactId>javafx-maven-plugin</artifactId>
 	<version>8.1.2</version>
 </dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -49,6 +49,21 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
+			<plugin>
+		        <groupId>com.ejwa</groupId>
+		        <artifactId>maven-gitdep-plugin</artifactId>
+		        <version>0.1</version>
+		        <configuration>
+		            <gitDependencies>
+		                <gitDependency>
+		                    <groupId>pl.marczykm</groupId>
+		                    <artifactId>SecureChatServer</artifactId>
+		                    <location>https://github.com/kenji89/SecureChatServer</location>
+		                    <branch>master</branch>
+		                </gitDependency>
+		            </gitDependencies>
+		        </configuration>
+		    </plugin>
 			<!-- <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
