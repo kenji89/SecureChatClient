@@ -23,15 +23,12 @@ public class LoginView extends Scene {
 	private static GridPane grid = new GridPane();
 	private Text errorText = new Text();
 	
-	private final GUI gui;
-
 	private TextField usernameTextfield = new TextField();
 	private PasswordField passwordField = new PasswordField();
 
 	public LoginView(GUI gui) {
 		super(grid, 300, 250);
 		prepareView();
-		this.gui = gui;
 	}
 
 	private void prepareView() {

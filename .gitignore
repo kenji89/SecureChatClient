@@ -1,4 +1,7 @@
 */target/**
+
 *.class
+
 *.jar
+
 /target/
