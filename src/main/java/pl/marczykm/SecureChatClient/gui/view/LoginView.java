@@ -15,21 +15,23 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import pl.marczykm.SecureChatClient.exception.TechnicalException;
+import pl.marczykm.SecureChatClient.gui.GUI;
 import pl.marczykm.SecureChatClient.gui.errormessage.LoginErrorMessage;
-import pl.marczykm.SecureChatClient.helper.ServerConnection;
 
-public class Login extends Scene {
-	private ServerConnection serverConnection = new ServerConnection();
+@SuppressWarnings("restriction")
+public class LoginView extends Scene {
 	private static GridPane grid = new GridPane();
 	private Text errorText = new Text();
+	
+	private final GUI gui;
 
 	private TextField usernameTextfield = new TextField();
 	private PasswordField passwordField = new PasswordField();
 
-	public Login() {
+	public LoginView(GUI gui) {
 		super(grid, 300, 250);
 		prepareView();
+		this.gui = gui;
 	}
 
 	private void prepareView() {
@@ -56,11 +58,9 @@ public class Login extends Scene {
 
 			public void handle(ActionEvent arg0) {
 				if (!validateFields()) {
-					try {
-						serverConnection.connect();
-					} catch (TechnicalException e) {
-						e.printStackTrace();
-					}
+//					User user = new User(usernameTextfield.getText(),
+//							passwordField.getText());
+//					gui.showChatView();
 				}
 			}
 		});
@@ -79,6 +79,7 @@ public class Login extends Scene {
 
 	/**
 	 * Validates fields.
+	 * 
 	 * @return true if error occured.
 	 */
 	protected boolean validateFields() {
