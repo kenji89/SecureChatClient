@@ -25,8 +25,8 @@ import pl.marczykm.SecureChatClient.gui.view.RegisterController;
 public class GUI extends Application {
 	private Stage stage;
 	private User loggedUser;
-	private final double MINIMUM_WINDOW_WIDTH = 500.0;
-    private final double MINIMUM_WINDOW_HEIGHT = 500.0;
+	private final double WINDOW_WIDTH = 800.0;
+    private final double WINDOW_HEIGHT = 635.0;
 
 	private static GUI instance;
 
@@ -44,8 +44,10 @@ public class GUI extends Application {
 	public void start(Stage primaryStage) {
 		this.stage = primaryStage;
 		this.stage.setTitle("SecureChat - by mm");
-		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
-        stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
+		stage.setMinWidth(WINDOW_WIDTH);
+        stage.setMinHeight(WINDOW_HEIGHT);
+        stage.setMaxWidth(WINDOW_WIDTH);
+        stage.setMaxHeight(WINDOW_HEIGHT);
 		gotoLogin();
 		primaryStage.show();
 	}
@@ -54,17 +56,6 @@ public class GUI extends Application {
 //		ChatController chatView = new ChatController();
 //
 //		stage.setScene(chatView);
-//		stage.show();
-//	}
-
-//	public void showRegisterView() {
-//		if (stage == null) {
-//			stage = new Stage();
-//		}
-//		// primaryStage.close();
-//		RegisterController registerView = new RegisterController(this);
-//
-//		stage.setScene(registerView);
 //		stage.show();
 //	}
 
@@ -114,6 +105,15 @@ public class GUI extends Application {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+	
+	public void gotoChat(){
+		try {
+            ChatController chat = (ChatController) replaceSceneContent("Chat.fxml");
+            chat.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	}
 
 	private Initializable replaceSceneContent(String fxml) throws Exception {
 		FXMLLoader loader = new FXMLLoader();

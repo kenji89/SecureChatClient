@@ -1,53 +1,36 @@
 package pl.marczykm.SecureChatClient.gui.view;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import pl.marczykm.SecureChatClient.GUI;
 
 @SuppressWarnings("restriction")
-public class ChatController extends Scene {
-	private static GridPane grid = new GridPane();
+public class ChatController extends AnchorPane implements Initializable {
 
-	public ChatController() {
-		super(grid, 350, 350);
-		prepareView();
+	private GUI application;
+	
+	@FXML
+	ScrollPane messagesPane;
+	@FXML
+	Label messages;
+
+	public void setApp(GUI application) {
+		this.application = application;
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		messages.setText("Marcin (12:04): test\nAnia (12:05): test 2\n");
 	}
 	
-	private void prepareView() {
-		ScrollPane messagesPane = new ScrollPane();
-		messagesPane.setHbarPolicy(ScrollBarPolicy.NEVER);
-		messagesPane.setVbarPolicy(ScrollBarPolicy.ALWAYS);
-		messagesPane.setPrefHeight(300);
+	public void sendMessage(ActionEvent event){
 		
-		Label label = new Label("Marcin (12:04): test\nAnia (12:05): test 2\n");
-		messagesPane.setContent(label);
-		
-		grid.add(messagesPane, 0, 0);
-		
-		final TextArea messageInput = new TextArea();
-		messageInput.setPrefWidth(300);
-		messageInput.setPrefHeight(50);
-		Button sendMessage = new Button("Send");
-		sendMessage.setPrefWidth(50);
-		sendMessage.setPrefHeight(50);
-		
-		sendMessage.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent arg0) {
-				
-			}
-		});
-		
-		HBox hb = new HBox();
-		hb.getChildren().addAll(messageInput, sendMessage);
-		
-		grid.add(hb, 0, 1);
 	}
 }

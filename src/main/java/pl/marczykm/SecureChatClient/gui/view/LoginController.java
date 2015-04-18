@@ -36,6 +36,9 @@ public class LoginController extends AnchorPane implements Initializable {
 		errorMessage.setText("");
 		userId.setPromptText("demo");
 		password.setPromptText("demo");
+		
+		userId.setText("Marcin");
+		password.setText("123");
 	}
 
 	public void processLogin(ActionEvent event) {
@@ -45,8 +48,7 @@ public class LoginController extends AnchorPane implements Initializable {
 						password.getText())) {
 					errorMessage.setText("Username/Password is incorrect");
 				} else {
-					errorMessage.setText("Hello " + userId.getText());
-					application.gotoRegister();
+					application.gotoChat();
 				}
 			}
 		}
