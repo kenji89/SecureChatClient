@@ -13,10 +13,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 @SuppressWarnings("restriction")
-public class ChatView extends Scene {
+public class ChatController extends Scene {
 	private static GridPane grid = new GridPane();
 
-	public ChatView() {
+	public ChatController() {
 		super(grid, 350, 350);
 		prepareView();
 	}
