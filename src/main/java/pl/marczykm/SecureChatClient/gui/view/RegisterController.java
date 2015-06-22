@@ -54,62 +54,6 @@ public class RegisterController extends AnchorPane implements Initializable {
 	@FXML
 	Label errorMessage;
 
-//	private void prepareView() {
-//		Text welcomeText = new Text("Welcome");
-//		welcomeText.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
-//		grid.add(welcomeText, 0, 0, 2, 1);
-//
-//		Label usernameLabel = new Label("Username");
-//		grid.add(usernameLabel, 0, 1);
-//		grid.add(usernameTextfield, 1, 1);
-//
-//		Label passwordLabel1 = new Label("Password");
-//		grid.add(passwordLabel1, 0, 2);
-//		grid.add(passwordField1, 1, 2);
-//		
-//		Label passwordLabel2 = new Label("Confirm password");
-//		grid.add(passwordLabel2, 0, 3);
-//		grid.add(passwordField2, 1, 3);
-//
-//		Button loginButton = new Button("Register");
-//		HBox hbBtn = new HBox(10);
-//		hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-//		hbBtn.getChildren().add(loginButton);
-//		grid.add(hbBtn, 1, 4);
-//		loginButton.setOnAction(new EventHandler<ActionEvent>() {
-//
-//			public void handle(ActionEvent arg0) {
-//				if (!validateFields()) {
-//					RestTemplate restTemplate = new RestTemplate();
-//
-//					URI targetUrl = UriComponentsBuilder
-//							.fromUriString("http://localhost:8080")
-//							.path("/user/register").build().toUri();
-//
-//					Map<String,Object> parameters = new HashMap<String, Object>();
-//					parameters.put("username", usernameTextfield.getText());
-//					parameters.put("hashedPassword", UserHelper.hashPassword(passwordField1.getText()));
-//					
-//					User user = restTemplate
-//							.postForObject(targetUrl, parameters, User.class);
-//					if (user != null)
-//						gui.gotoLogin();
-//				}
-//			}
-//		});
-//
-//		errorText.setFill(Color.FIREBRICK);
-//		errorText.setVisible(false);
-//		grid.add(errorText, 1, 6);
-//
-//		grid.setAlignment(Pos.CENTER);
-//		grid.setHgap(10);
-//		grid.setVgap(10);
-//		grid.setPadding(new Insets(25, 25, 25, 25));
-//
-//		// super.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
-//	}
-
 	/**
 	 * Validates fields.
 	 * 
@@ -145,7 +89,7 @@ public class RegisterController extends AnchorPane implements Initializable {
 
 			Map<String,Object> parameters = new HashMap<String, Object>();
 			parameters.put("username", userId.getText());
-			parameters.put("hashedPassword", UserHelper.hashPassword(password1.getText()));
+			parameters.put("hashedPassword", password1.getText());
 			
 			User user = restTemplate
 					.postForObject(targetUrl, parameters, User.class);

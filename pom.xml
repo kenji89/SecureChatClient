@@ -41,7 +41,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>pl.marczykm.SecureChatClient.gui.GUI</mainClass>
+							<mainClass>pl.marczykm.SecureChatClient.GUI</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -54,7 +54,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>pl.marczykm.SecureChatClient.gui.GUI</mainClass>
+							<mainClass>pl.marczykm.SecureChatClient.GUI</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
